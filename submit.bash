@@ -10,10 +10,11 @@
 #SBATCH -e mpitest.err
 module  load  openmpi
 mpic++ main.cpp -o fourier  -lm
-rm  -f mpitest.out mpitest.err
-touch mpitest.out mpitest.err
+rm  -f results.csv
+touch results.csv
 for i  in  1 2 4 8
 do
-    mpiexec  -np  $i  fourier 2>  fourier.err  >  fourier.out
+    mpiexec  -np  $i  fourier
+    cat fourier.err >> results.csv
 done
 # mpiexec -np 4 fourier
