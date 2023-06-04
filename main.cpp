@@ -144,7 +144,7 @@ main( int argc, char *argv[ ] )
 				continue;
 
 			//MPI_Send(????? , ?????, MPI_FLOAT, ?????, TAG_SCATTER, MPI_COMM_WORLD );
-            MPI_Send( BigSignal[dst*PPSize], PPSize, MPI_FLOAT, dst, TAG_SCATTER, MPI_COMM_WORLD );
+            MPI_Send( &BigSignal[dst*PPSize], PPSize, MPI_FLOAT, dst, TAG_SCATTER, MPI_COMM_WORLD );
 		}
 	}
 	else
